@@ -33,6 +33,33 @@ timeBlocks.forEach(function (timeBlock) {
     console.log("Block is in the present");
     timeBlock.classList.add("present");
   }
+
+// Add an event listener to all save buttons
+var saveButtons = document.querySelectorAll(".saveBtn");
+saveButtons.forEach(function(btn) {
+  btn.addEventListener("click", handleSave);
+});
+function handleSave(event) {
+  // Get the text area and its corresponding hour from the parent element
+  var textAreaEl = event.target.parentNode.querySelector(".description");
+  var hour = event.target.parentNode.getAttribute("data-hour");
+
+  // Save the event text in local storage using the hour as the key
+  localStorage.setItem(hour, textAreaEl.value);
+}
+var timeBlocks = document.querySelectorAll(".time-block");
+timeBlocks.forEach(function(block) {
+  var hour = block.getAttribute("data-hour");
+  var textAreaEl = block.querySelector(".description");
+  var savedEvent = localStorage.getItem(hour);
+
+  if (savedEvent) {
+    // If a saved event exists, display it in the text area
+    textAreaEl.value = savedEvent;
+  }
+});
+
+
   });
 });
 
