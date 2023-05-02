@@ -16,31 +16,31 @@ timeBlocks.forEach(function (timeBlock) {
   // Get the time block's hour using data attributes
   var blockHour = parseInt(timeBlock.dataset.hour);
 
-  // Create a Day.js object for the time block's hour
+  // Create a Day.js object for hour of the time block
   var blockTime = dayjs().hour(blockHour).startOf("hour");
 
   // Compare the block time to the current time
   if (blockTime.isBefore(currentTime, "hour")) {
-    // If the block time is in the past, add the "past" class
+    // If in the past, add the "past" class
     console.log("Block is in the past");
     timeBlock.classList.add("past");
   } else if (blockTime.isAfter(currentTime, "hour")) {
-    // If the block time is in the future, add the "future" class
+    // If in the future, add the "future" class
     console.log("Block is in the future");
     timeBlock.classList.add("future");
   } else {
-    // If the block time is the current hour, add the "present" class
+    // If in the present, add the "present" class
     console.log("Block is in the present");
     timeBlock.classList.add("present");
   }
 
-// Add an event listener to all save buttons
+// Add an event listener to all the save buttons
 var saveButtons = document.querySelectorAll(".saveBtn");
 saveButtons.forEach(function(btn) {
   btn.addEventListener("click", handleSave);
 });
 function handleSave(event) {
-  // Get the text area and its corresponding hour from the parent element
+  // Get the text area and its hour from the parent HTML element
   var textAreaEl = event.target.parentNode.querySelector(".description");
   var hour = event.target.parentNode.getAttribute("data-hour");
 
@@ -54,12 +54,10 @@ timeBlocks.forEach(function(block) {
   var savedEvent = localStorage.getItem(hour);
 
   if (savedEvent) {
-    // If a saved event exists, display it in the text area
+    // If the event was saved, display it in the text area
     textAreaEl.value = savedEvent;
   }
 });
-
-
   });
 });
 
@@ -88,26 +86,3 @@ timeBlocks.forEach(function(block) {
 
 
 
-
-  // // Get the current hour
-// var currentHour = new Date().getHours();
-
-// // Loop through all the time blocks
-// $(".time-block").each(function() {
-
-//   // Get the hour of this time block
-//   var blockHour = parseInt($(this).attr("id").split("-")[1]);
-
-//   // Compare the current hour with the hour of this time block
-//   if (blockHour < currentHour) {
-//     // Set the background color to gray for past time blocks
-//     $(this).addClass("past");
-//   } else if (blockHour === currentHour) {
-//     // Set the background color to red for the current time block
-//     $(this).addClass("present");
-//   } else {
-//     // Set the background color to green for future time blocks
-//     $(this).addClass("future");
-//   }
-// });
-// });
