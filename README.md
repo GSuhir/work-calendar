@@ -14,7 +14,7 @@ I had starter code to work with and didn't alter the HTML too much with the exce
 
 ![Alt text](Assets/Capture.JPG)
 
-(This screenshot was taken at 5:30PM but when you pull it up during work hours you will see it is color-coded)
+(This screenshot was taken at 6PM but when you pull it up during work hours you will see it is color-coded)
 
 ## Links
 
