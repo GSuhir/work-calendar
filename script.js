@@ -44,7 +44,7 @@ function handleSave(event) {
   var textAreaEl = event.target.parentNode.querySelector(".description");
   var hour = event.target.parentNode.getAttribute("data-hour");
 
-  // Save the event text in local storage using the hour as the key
+  // Save the event text in local storage
   localStorage.setItem(hour, textAreaEl.value);
 }
 var timeBlocks = document.querySelectorAll(".time-block");
